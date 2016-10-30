@@ -35,6 +35,12 @@ namespace GreeterServer
 
             server.Start();
 
+            // it does not matter when the call is made - removing lines 27-29 above and calling it down here renders
+            // the same result: some calls from remote clients never complete.
+            //     var channel = new Channel("127.0.0.1", 9002, ChannelCredentials.Insecure);
+            //     var client  = new Greeter.GreeterClient(channel);
+            //     var result  = await client.SayHelloAsync(new HelloRequest() { Name = "me" }); // <-- comment out this call and the solution works as expected
+
             Console.WriteLine($"listening on port {port}. press enter to exit.");
             Console.ReadLine();
 
