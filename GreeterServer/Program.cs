@@ -9,6 +9,8 @@ namespace GreeterServer
     {
         public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
         {
+            Console.WriteLine($"::got-request {request.Name}");
+
             return Task.FromResult(
                 new HelloReply { Message = $"hello, {request.Name}!" });
         }
