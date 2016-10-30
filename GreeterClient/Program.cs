@@ -45,6 +45,8 @@ namespace GreeterClient
                     progress[thread] = ++i;
                     Console.Title = string.Join(", ", progress);
 
+                    // break on the below line to inspect variables. all `channels`, including the non-responsive ones,
+                    // indicate `status == ready`. alternatively, remove this line to continuously count invocations.
                     while (true)
                         await Task.Delay(100);
                 }
